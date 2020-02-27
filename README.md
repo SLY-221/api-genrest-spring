@@ -1,5 +1,5 @@
 # api-genrest-spring
-Ce projet est réaliser dans le cadre scolaire pour faire la migration vers spring-boot/spring-data d'un projet déjâ existant.
+Ce projet est réaliser dans le cadre scolaire pour faire la migration vers spring-boot/spring-data d'un projet déjà existant.
 
 ## Instructions préliminaires
   - Pour La connexion à la base, il faut changer les information de connexion [MySQL 8] dans le fichier /resources/[application.properties](https://github.com/SLY-221/api-genrest-spring/blob/master/src/main/resources/application.properties).
