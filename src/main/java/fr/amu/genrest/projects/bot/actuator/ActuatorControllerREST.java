@@ -8,17 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RequestMapping("api/actuators")
 @RestController
 public class ActuatorControllerREST {
-	
+
 	@Autowired
-	ActuatorRepository actuatorRepository; 
-	
+	ActuatorRepository actuatorRepository;
+
 	/**
-	 * @description
-	 * 		Fonction de récupération de la liste des actuators 
+	 * Fonction de récupération de la liste des actuators
+	 * 
 	 * @return une liste d'actuators.
 	 */
 	@GetMapping("")
@@ -27,11 +26,11 @@ public class ActuatorControllerREST {
 		// TODO : ErrorException to do ...
 		return ResponseEntity.ok(actuators);
 	}
-	
+
 	/**
-	 * @param id
-	 * @description
-	 * 		Fonction de recupération par la méthode GET l'identifiant de Actuator.
+	 * Fonction de recupération par la méthode GET l'identifiant de Actuator.
+	 * 
+	 * @param id : L'identifiant de l'Activateur 
 	 * @return Les valeurs de l'identifiant de Actuator indexé.
 	 */
 	@GetMapping("/{id:[0-9]+}")
@@ -39,20 +38,22 @@ public class ActuatorControllerREST {
 		Actuator actuator = actuatorRepository.findById(id).get();
 		// TODO : ErrorException to do ...
 		return ResponseEntity.ok(actuator);
-		
+
 	}
-	
+
 	/**
+	 * Fonction de mise à jour
+	 * 
 	 * @param id
 	 * @param actuator
-	 * @description 
-	 * 		Fonction de mise à jour 
-	 * @return les valeurs mises à jour 
+	 * 
+	 * @return les valeurs mises à jour
 	 */
 	@PostMapping("{id:[0-9]+}")
 	public ResponseEntity<Actuator> MergeActuatorById(@PathVariable Long id, Actuator actuator) {
 		Actuator actuatorFinded = actuatorRepository.findById(id).get();
-		actuatorRepository.updateById(actuator);
+		// TODO : ErrorException to do ...
+		actuatorRepository.save(actuator);
 		return ResponseEntity.ok(actuatorFinded);
 	}
 }

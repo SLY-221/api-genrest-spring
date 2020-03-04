@@ -6,12 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * @author Bachir, Fazia
+ * @author Bachir
+ * @author Fazia
+ * 
  *
  */
 
 public @Data @AllArgsConstructor class RestApiError {
-	private int code;
-	private HttpStatus status;
+	
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+//	private LocalDateTime timestamp;
 	private String message;
+	private HttpStatus status;
+	
 }

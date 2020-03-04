@@ -10,17 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
  * La classe Actuator : un JB 
- * @author Tsila, Bachir, Fazia
+ * @author Tsila
+ * @author Bachir
+ * @author Fazia
  *
  */
 
 @Entity
 @Table(name = "Actuator")
-public @Data class Actuator implements Serializable{
+public @Data @AllArgsConstructor class Actuator implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id

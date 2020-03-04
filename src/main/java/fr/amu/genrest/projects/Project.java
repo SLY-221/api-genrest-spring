@@ -18,22 +18,28 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import fr.amu.genrest.projects.bot.building.Building;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
+ * JavaBean de la classe Project ayant tous les attributs communs que peuvent
+ * partagé par tous les projets.
  * 
- * @author Youcef, Mohamed, Fazia, Bachir
+ * NB : Pour plus de facilté dans la déclarations des attributs du JB, nous
+ * avons utilisé Lombok.
  * 
- *         JavaBean de la classe Project ayant tous les attributs communs que
- *         peuvent partagé par tous les projets.
+ * @author Youcef
+ * @author Mohamed
+ * @author Fazia
+ * @author Bachir
  * 
- *         NB : Pour plus de facilté dans la déclarations des attributs du JB,
- *         nous avons utilisé Lombok.
  */
 
 @Entity
 @Table(name = "Project")
-public @Data class Project implements Serializable {
+@Data
+@AllArgsConstructor
+public class Project implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -64,15 +70,23 @@ public @Data class Project implements Serializable {
 	private Set<Building> buildings = new HashSet<>();
 
 	// TODO: Ne pas oublier les autres projets au cas où, ils seront créer.
-
-	public Project() {
+	/**
+	 * Fonction de suppression d'un projet.
+	 * 
+	 * @param building : Le projet associé.
+	 */
+	public void deleteBuildings(Building building) {
+		if (this.buildings.size() == 1 && this.buildings.removeIf(p -> p.getId().equals(building.getId()))) {
+			this.buildings.clear();
+		}
 	}
 
-	public Project(String projectName, String domaine, LocalDateTime creationDate, LocalDateTime changeDate) {
-		setProjectName(projectName);
-		setDomaine(domaine);
-		setCreationDate(creationDate);
-		setChangeDate(changeDate);
+	/**
+	 * Fonction de création d'un projet.
+	 * 
+	 * @param building : Un projet créé.
+	 */
+	public void addBuilding(Building building) {
+		this.buildings.add(building);
 	}
-
 }
