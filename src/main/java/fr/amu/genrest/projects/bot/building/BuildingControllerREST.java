@@ -21,15 +21,15 @@ public class BuildingControllerREST {
 	 * @return une liste des buildings.
 	 */
 	@GetMapping("")
-	public ResponseEntity<Iterable<Building>> getProjects() {
-		Iterable<Building> buildings = buildingRepository.findAll();
-		return ResponseEntity.accepted().body(buildings);
+	public ResponseEntity<Iterable<Building>> getBuildings() {
+		Iterable<Building> buildings = (Iterable<Building>) buildingRepository.findAll();
+		return ResponseEntity.ok(buildings);
 	}
 
 	/**
 	 * Fonction de recupération par la méthode GET l'identifiant de Actuator.
 	 * 
-	 * @param id L'identifiant du batiment.
+	 * @param buildingID : L'identifiant du batiment.
 	 * @return Les valeurs du batiment indexé.
 	 */
 	@GetMapping("/{id:[0-9]+}")

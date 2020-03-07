@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = Starter.class) 
+@ComponentScan(basePackageClasses = Starter.class)
 @EnableJpaRepositories(basePackageClasses = Starter.class)
 @EntityScan(basePackageClasses = Starter.class)
 public class Starter extends SpringBootServletInitializer {

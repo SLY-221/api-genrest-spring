@@ -70,10 +70,12 @@ public class Project implements Serializable {
 	private Set<Building> buildings = new HashSet<>();
 
 	// TODO: Ne pas oublier les autres projets au cas où, ils seront créer.
+	
+	
 	/**
 	 * Fonction de suppression d'un projet.
 	 * 
-	 * @param building : Le projet associé.
+	 * @param building - Le projet associé.
 	 */
 	public void deleteBuildings(Building building) {
 		if (this.buildings.size() == 1 && this.buildings.removeIf(p -> p.getId().equals(building.getId()))) {
@@ -84,7 +86,7 @@ public class Project implements Serializable {
 	/**
 	 * Fonction de création d'un projet.
 	 * 
-	 * @param building : Un projet créé.
+	 * @param building - Un projet créé.
 	 */
 	public void addBuilding(Building building) {
 		this.buildings.add(building);

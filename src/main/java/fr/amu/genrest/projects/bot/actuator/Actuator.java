@@ -10,31 +10,34 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * La classe Actuator : un JB 
+ * JavaBean de la classe {@link Actuator} ayant tous les attributs communs que
+ * peuvent partagé par tous les fonctionnalités du même domaine.
+ * 
  * @author Tsila
  * @author Bachir
  * @author Fazia
  *
+ *         ** NB : Pour plus de facilté dans la déclarations des attributs du
+ *         JB, nous avons utilisé Lombok. **
  */
 
 @Entity
 @Table(name = "Actuator")
-public @Data @AllArgsConstructor class Actuator implements Serializable {
-	
+public @Data class Actuator implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(name = "name", nullable = false)
 	@Size(min = 1, max = 200)
 	private String name;
-	
+
 	@Column(name = "latitude", nullable = false)
 	private double latitude;
 
@@ -44,14 +47,15 @@ public @Data @AllArgsConstructor class Actuator implements Serializable {
 	@Column(name = "model", nullable = false)
 	@Size(min = 1, max = 200)
 	private String model;
-	
-	public Actuator(String name, double latitude, double longitude, String model) {
-		super();
-		setName(name);
-		setLatitude(latitude);
-		setLongitude(longitude);
-		setModel(model);
-	}
 
-	public Actuator() {super();}
+	public Actuator(Long id, String name, double latitude, double longitude, String model) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.model = model;
+	}
+	
+	
 }

@@ -51,7 +51,7 @@ public class ProjectRepositoryTest {
 	}
 
 	// update
-	@SuppressWarnings("unlikely-arg-type")
+	@SuppressWarnings({ "unlikely-arg-type", "unused" })
 	@Test
 	public void testUpdateEntity() {
 		Long id = (long) 1;

@@ -35,11 +35,7 @@ public class ActuatorRepositoryTest {
 		//Add
 		int after = (int) actuatorRepository.count();
 		System.out.println("occurence"+after);
-		Actuator actuator = new Actuator(); // 1,1,"model","actuator3"
-		actuator.setLatitude(28.5);
-		actuator.setLongitude(35.5);
-		actuator.setModel("ACT001");
-		actuator.setName("Actuator001");
+		Actuator actuator = new Actuator(null, "ACT001", 35.5, 28.5, "Actuator001");
 		actuatorRepository.save(actuator);
 		System.out.println("good1" +actuator);
 		int befor = after +1 ;
